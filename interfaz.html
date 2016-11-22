@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<script type="text/javascript">
+			var jugador=1;
+			function ponerMarca(id){
+				if(jugador == 1){
+					document.getElementById(id).innerHTML='X';
+					document.getElementById("jugador").innerHTML="Turno del jugador: 2";
+					jugador = 2;
+				}else if(jugador == 2){
+					document.getElementById(id).innerHTML='O';
+					document.getElementById("jugador").innerHTML="Turno del jugador: 1";
+					jugador = 1;
+				}
+			}
+		</script>
+		<ul>
+			<li>
+				<button id='1,1' style='width:70px; height:30px' onclick=(ponerMarca("1,1")) type="button">-</button>
+				<button id='2,1' style='width:70px; height:30px' onclick=(ponerMarca("2,1")) type="button">-</button>
+				<button id='3,1' style='width:70px; height:30px' onclick=(ponerMarca("3,1")) type="button">-</button>
+			</li>
+			<li>
+				<button id='1,2' style='width:70px; height:30px' onclick=(ponerMarca("1,2")) type="button">-</button>
+				<button id='2,2' style='width:70px; height:30px' onclick=(ponerMarca("2,2")) type="button">-</button>
+				<button id='3,2' style='width:70px; height:30px' onclick=(ponerMarca("3,2")) type="button">-</button>
+			</li>			
+			<li>
+				<button id='1,3' style='width:70px; height:30px' onclick=(ponerMarca("1,3")) type="button">-</button>
+				<button id='2,3' style='width:70px; height:30px' onclick=(ponerMarca("2,3")) type="button">-</button>
+				<button id='3,3' style='width:70px; height:30px' onclick=(ponerMarca("3,3")) type="button">-</button>
+			</li>		
+		<ul>
+		<a id="jugador">Turno del jugador: 1</a>
+	<body>
+</html>
