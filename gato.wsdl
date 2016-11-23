@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Descripción WSDL de la clase Hola Mundo. -->
+<!-- DescripciÃ³n WSDL de la clase Hola Mundo. -->
 
 <wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
 				  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
