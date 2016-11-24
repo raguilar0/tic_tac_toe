@@ -23,16 +23,25 @@
 	
 	<message name="poner_fichaOut"/>
 	
+	<message name="imprimirIn"/>
+	
+	<message name="imprimirOut"/>
+	
 	<portType name="Gato_B12037_B10141Port">
 		<operation name="jugar">
 			<documentation>Servidor::jugar() Permite jugar gato.</documentation>
 			<input message="tns:jugarIn"/>
 			<output message="tns:jugarOut"/>
 		</operation>	
-		<operation name="jugar">
+		<operation name="poner_ficha">
 			<documentation>Servidor::poner_ficha() pone una ficha en la posicion que se desea.</documentation>
 			<input message="tns:poner_fichaIn"/>
 			<output message="tns:poner_fichaOut"/>
+		</operation>
+		<operation name="imprimir">
+			<documentation>Servidor::imprimir() imprime ganador.</documentation>
+			<input message="tns:imprimirIn"/>
+			<output message="tns:imprimirOut"/>
 		</operation>
 	</portType>
 	
@@ -54,6 +63,19 @@
 		</operation>
 		<operation name="poner_ficha">
 			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#poner_ficha"/>
+			<input>
+				<soap:body use="encoded"
+				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+						   namespace="urn:Gato_B12037_B10141"/>
+			</input>
+			<output>
+				<soap:body use="encoded"
+				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+						   namespace="urn:Gato_B12037_B10141"/>
+			</output>
+		</operation>
+		<operation name="imprimir">
+			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#imprimir"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
