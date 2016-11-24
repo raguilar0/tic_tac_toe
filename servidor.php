@@ -19,7 +19,7 @@
 		*/
 		public function poner_ficha($fila,$columna){
 			if($this->esta_vacia($fila,$columna) && $this->es_valida($fila,$columna)){
-				$tablero[$fila][$columna] = $this->turno_jugador;
+				$this->tablero[$fila][$columna] = $this->turno_jugador;
 				if($this->turno_jugador == 0 ){
 				//	jugar_computadora();
 				}
