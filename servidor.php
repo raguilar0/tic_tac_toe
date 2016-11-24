@@ -14,7 +14,7 @@
 		if(esta_vacia($fila,$columna) && es_valida($fila,$columna)){
 			$tablero[$fila][$columna] = $turno_jugador;
 			if($turno_jugador == 0 ){
-				jugar_computadora();
+			//	jugar_computadora();
 			}
 		}
 	}
@@ -34,7 +34,9 @@
 
 	}
 
-
+	poner_ficha(0,1);
+	poner_ficha(0,0);
+	poner_ficha(0,2);
 	if(gano($tablero)){
 		echo "Gano";
 	}else{
