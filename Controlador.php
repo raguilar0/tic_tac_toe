@@ -58,5 +58,14 @@
 		return $ha_ganado;
 	}
 
+	function analizar_tablero($matrix){
+		$posicion_ficha[0] = 0;
+		$posicion_ficha[1] = 0;
+
+		return $posicion_ficha;
+	}
+
+
+
 	//$obj = new Controlador();
 ?>
