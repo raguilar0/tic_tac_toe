@@ -10,8 +10,8 @@ require_once 'Servidor.php';
 		session_start();
 		$servidorSoap = new SoapServer('http://titanic.ecci.ucr.ac.cr:80/~eb10141/tic_tac_toe/?wsdl');
 
-		//Para evitar la excepción por defecto de SOAP PHP cuando no existe HTTP_RAW_POST_DATA,
-		//se regresa explícitamente el siguiente fallo cuando no hay solicitud (v.b. desde un navegador)
+		//Para evitar la excepciÃ³n por defecto de SOAP PHP cuando no existe HTTP_RAW_POST_DATA,
+		//se regresa explÃ­citamente el siguiente fallo cuando no hay solicitud (v.b. desde un navegador)
 		if(!@$HTTP_RAW_POST_DATA){
 			$servidorSoap->fault('SOAP-ENV:Client', 'Invalid Request');
 			exit;
