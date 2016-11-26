@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Descripción WSDL de la clase Hola Mundo. -->
+<!-- Descripción WSDL de la clase Servidor. -->
 
 <definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
@@ -15,10 +15,6 @@
 		<xsd:schema targetNamespace="urn:Gato_B12037_B10141"/>
 	</types>
 	
-	<message name="jugarIn"/>
-	
-	<message name="jugarOut"/>
-	
 	<message name="poner_fichaIn">
 		<part name="fila" type="xsd:int"/>
 		<part name="columna" type="xsd:int"/>
@@ -30,12 +26,7 @@
 	
 	<message name="imprimirOut"/>
 	
-	<portType name="Gato_B12037_B10141Port">
-		<operation name="jugar">
-			<documentation>Servidor::jugar() Permite jugar gato.</documentation>
-			<input message="tns:jugarIn"/>
-			<output message="tns:jugarOut"/>
-		</operation>	
+	<portType name="Gato_B12037_B10141Port">	
 		<operation name="poner_ficha">
 			<documentation>Servidor::poner_ficha() pone una ficha en la posicion que se desea.</documentation>
 			<input message="tns:poner_fichaIn"/>
@@ -51,19 +42,6 @@
 	<binding name="Gato_B12037_B10141Binding" type="tns:Gato_B12037_B10141Port">
 		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
 		
-		<operation name="jugar">
-			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#jugar"/>
-			<input>
-				<soap:body use="encoded"
-				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:Gato_B12037_B10141"/>
-			</input>
-			<output>
-				<soap:body use="encoded"
-				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:Gato_B12037_B10141"/>
-			</output>
-		</operation>
 		<operation name="poner_ficha">
 			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#poner_ficha"/>
 			<input>
