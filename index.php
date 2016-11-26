@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Servidor.class.php';
+require_once 'Servidor.php';
 
   if (isset($_GET['wsdl'])) {
 		header('Content-Type: application/soap+xml; charset=utf-8');
