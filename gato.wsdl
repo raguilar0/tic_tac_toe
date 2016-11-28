@@ -10,25 +10,25 @@
 			 xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
 			 name="Gato_B12037_B10141"
 			 targetNamespace="urn:Gato_B12037_B10141">
-	
+
 	<types>
 		<xsd:schema targetNamespace="urn:Gato_B12037_B10141"/>
 	</types>
-	
+
 	<message name="poner_fichaIn">
 		<part name="fila" type="xsd:int"/>
 		<part name="columna" type="xsd:int"/>
 	</message>
-	
+
 	<message name="poner_fichaOut"/>
-	
+
 	<message name="imprimirIn"/>
-	
+
 	<message name="imprimirOut">
 		<part name="return" type="xsd:string"/>
 	</message>
-	
-	<portType name="Gato_B12037_B10141Port">	
+
+	<portType name="Gato_B12037_B10141Port">
 		<operation name="poner_ficha">
 			<documentation>Servidor::poner_ficha() pone una ficha en la posicion que se desea.</documentation>
 			<input message="tns:poner_fichaIn"/>
@@ -40,10 +40,10 @@
 			<output message="tns:imprimirOut"/>
 		</operation>
 	</portType>
-	
+
 	<binding name="Gato_B12037_B10141Binding" type="tns:Gato_B12037_B10141Port">
 		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
-		
+
 		<operation name="poner_ficha">
 			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#poner_ficha"/>
 			<input>
@@ -71,7 +71,7 @@
 			</output>
 		</operation>
 	</binding>
-		 
+
 	<service name="Gato_B12037_B10141Service">
 		<port name="Gato_B12037_B10141Port" binding="tns:Gato_B12037_B10141Binding">
 			<soap:address location="http://titanic.ecci.ucr.ac.cr/~eb10141/tic_tac_toe/"/>
