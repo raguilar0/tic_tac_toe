@@ -58,6 +58,7 @@
 		return $ha_ganado;
 	}
 
+	// Analiza el movimiento de la maquina y retorna la posicion donde debe de poner la ficha
 	function analizar_tablero($matrix){
 		$posicion_ficha[0] = 0;
 		$posicion_ficha[1] = 0;
