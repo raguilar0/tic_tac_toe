@@ -110,6 +110,47 @@
 		}
 	}
 
+	//=========================Para el nivel facil=================================
+
+	function juego_facil($tablero){
+		$casillas_libres = contar_casillas_libres($tablero);
+		$casilla_elegida = rand(1,$casillas_libres);
+		return posicion_casilla_elegida($casilla_elegida);
+	}
+
+	function contar_casillas_libres($tablero){
+		$contador = 0;
+		for( $i=0 ; $i<3 ; $++i){
+			for( $j=0 ; $j<3; ++$j){
+				if($tablero[$i][$j] == -1){
+					++$contador;
+				}
+			}
+		}
+		return $contador;
+	}
+
+	function posicion_casilla_elegida($numero_casilla){
+		$contador = 1;
+		$numero_fila = 0;
+		$numero_columna = 0;
+		for( $i=0 ; $i<3 ; $++i){
+			for( $j=0 ; $j<3; ++$j){
+				if($tablero[$i][$j] == -1){
+					++$contador;
+					if($contador == $numero_casilla){
+						$numero_fila = $i;
+						$numero_columna = $j;
+						break;
+					}
+				}
+			}
+		}
+		$posicion[0] = $numero_fila;
+		$posicion[1] = $numero_columna;
+		return $posicion;
+	}
+
 
 
 	//$obj = new Controlador();

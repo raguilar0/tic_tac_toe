@@ -6,10 +6,13 @@
 	class Servidor{
 		public $tablero;
 		private $turno_jugador = 0;
-		function __construct(){
+		private $modo_facil = true;
+		function __construct($modo){
 			$this->tablero [0] [0] = -1; $this->tablero [0] [1] = -1; $this->tablero [0] [2] = -1;
 			$this->tablero [1] [0] = -1; $this->tablero [1] [1] = -1; $this->tablero [1] [2] = -1;
 			$this->tablero [2] [0] = -1; $this->tablero [2] [1] = -1; $this->tablero [2] [2] = -1;
+
+			$this->modo_facil = $modo;
 		}
 		/*
 		Pone la ficha del jugador en turno en la posicion que se solicita
@@ -41,7 +44,11 @@
 		}
 		// Hace la jugada "inteligente" del computador
 		private function jugar_computadora(){
-			$posicion = movimiento($this->tablero);
+			if($modo_facil){
+					$posicion = juego_facil($this->tablero);
+			}else{
+					$posicion = movimiento($this->tablero);
+			}
 			$this->poner_ficha($posicion[0],$posicion[1]);
 			$this->cambiar_jugador();
 		}
