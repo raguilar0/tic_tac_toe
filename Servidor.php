@@ -6,10 +6,13 @@
 	class Servidor{
 		public $tablero;
 		private $turno_jugador = 0;
-		function __construct(){
+		private $modo_facil = true;
+		function __construct($modo){
 			$this->tablero [0] [0] = -1; $this->tablero [0] [1] = -1; $this->tablero [0] [2] = -1;
 			$this->tablero [1] [0] = -1; $this->tablero [1] [1] = -1; $this->tablero [1] [2] = -1;
 			$this->tablero [2] [0] = -1; $this->tablero [2] [1] = -1; $this->tablero [2] [2] = -1;
+
+			$this->modo_facil = $modo;
 		}
 		/*
 		Pone la ficha del jugador en turno en la posicion que se solicita
@@ -18,7 +21,8 @@
 			if($this->esta_vacia($fila,$columna) && $this->es_valida($fila,$columna)){
 				$this->tablero[$fila][$columna] = $this->turno_jugador;
 				if($this->turno_jugador == 0 ){
-				//	jugar_computadora();
+					$this->cambiar_jugador();
+					$this->jugar_computadora();
 				}
 			}
 		}
@@ -30,9 +34,25 @@
 		private function es_valida($fila, $columna){
 			return ($fila < 3 && $fila >= 0 && $columna < 3 && $columna >= 0);
 		}
+
+		private function cambiar_jugador(){
+			if($this->get_turno_jugador() == 0 ){
+				$this->set_turno_jugador(1);
+			}else{
+				$this->set_turno_jugador(0);
+			}
+		}
 		// Hace la jugada "inteligente" del computador
 		private function jugar_computadora(){
+			if($modo_facil){
+					$posicion = juego_facil($this->tablero);
+			}else{
+					$posicion = movimiento($this->tablero);
+			}
+			$this->poner_ficha($posicion[0],$posicion[1]);
+			$this->cambiar_jugador();
 		}
+
 		public function  imprimir(){
 			if(gano($this->tablero)){
 				print "HAY UN GANADOR\n"	;
@@ -40,6 +60,13 @@
 				print "NO HAY UN GANADOR \n";
 			}
 			return "hola";
+		}
+
+		public function set_turno_jugador($turno){
+			$this->turno_jugador = $turno;
+		}
+		public function get_turno_jugador(){
+			retunr $this->turno_jugador;
 		}
 	}
 

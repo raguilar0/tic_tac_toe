@@ -58,12 +58,97 @@
 		return $ha_ganado;
 	}
 
+		function movimiento($matriz){
+			$posicion_ficha = analizar_tablero($matrix);
+			return $posicion_ficha;
+		}
+
 	// Analiza el movimiento de la maquina y retorna la posicion donde debe de poner la ficha
 	function analizar_tablero($matrix){
 		$posicion_ficha[0] = 0;
 		$posicion_ficha[1] = 0;
+		if(tablero_vacio( $matrix )){
+			$posicion_ficha = escoger_esquina();
+		}
 
 		return $posicion_ficha;
+	}
+
+	//Verifica que el tablero esta vacio si no es asi retorna false
+	function tablero_vacio($tablero){
+		$esta_vacio = true;
+		for( $i=0 ; $i<3 ; $++i){
+			for( $j=0 ; $j<3; ++$j){
+				if($tablero[$i][$j] != -1){
+					$esta_vacia = false;
+				}
+			}
+		}
+		return $esta_vacia;
+	}
+
+	//Escoge una esquina al azar
+	function escoger_esquina(){
+		$esquina = rand(1,4);
+		switch ($esquina) {
+		    case 1:
+					$posicion[0] = 0;
+					$posicion[1] = 1;
+		      break;
+		    case 2:
+					$posicion[0] = 0;
+					$posicion[1] = 2;
+		      break;
+		    case 3:
+					$posicion[0] = 2;
+					$posicion[1] = 0;
+		      break;
+				case 4:
+					$posicion[0] = 2;
+					$posicion[1] = 2;
+					break;
+		}
+	}
+
+	//=========================Para el nivel facil=================================
+
+	function juego_facil($tablero){
+		$casillas_libres = contar_casillas_libres($tablero);
+		$casilla_elegida = rand(1,$casillas_libres);
+		return posicion_casilla_elegida($casilla_elegida);
+	}
+
+	function contar_casillas_libres($tablero){
+		$contador = 0;
+		for( $i=0 ; $i<3 ; $++i){
+			for( $j=0 ; $j<3; ++$j){
+				if($tablero[$i][$j] == -1){
+					++$contador;
+				}
+			}
+		}
+		return $contador;
+	}
+
+	function posicion_casilla_elegida($numero_casilla){
+		$contador = 1;
+		$numero_fila = 0;
+		$numero_columna = 0;
+		for( $i=0 ; $i<3 ; $++i){
+			for( $j=0 ; $j<3; ++$j){
+				if($tablero[$i][$j] == -1){
+					++$contador;
+					if($contador == $numero_casilla){
+						$numero_fila = $i;
+						$numero_columna = $j;
+						break;
+					}
+				}
+			}
+		}
+		$posicion[0] = $numero_fila;
+		$posicion[1] = $numero_columna;
+		return $posicion;
 	}
 
 
