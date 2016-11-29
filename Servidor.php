@@ -66,7 +66,7 @@
 			$this->turno_jugador = $turno;
 		}
 		public function get_turno_jugador(){
-			retunr $this->turno_jugador;
+			return $this->turno_jugador;
 		}
 	}
 
