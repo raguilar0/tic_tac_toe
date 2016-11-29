@@ -104,7 +104,8 @@
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
 						   namespace="urn:Gato_B12037_B10141"/>
 			</output>
-			<operation name="get_turno_jugador">
+		</operation>
+		<operation name="get_turno_jugador">
 			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#get_turno_jugador"/>
 			<input>
 				<soap:body use="encoded"
@@ -116,7 +117,6 @@
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
 						   namespace="urn:Gato_B12037_B10141"/>
 			</output>
-		</operation>
 		</operation>
 	</binding>
 
