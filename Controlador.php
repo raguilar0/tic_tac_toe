@@ -118,7 +118,7 @@
 	function juego_facil($tablero){
 		$casillas_libres = contar_casillas_libres($tablero);
 		$casilla_elegida = rand(1,$casillas_libres);
-		return posicion_casilla_elegida($casilla_elegida);
+		return posicion_casilla_elegida($casilla_elegida,$tablero);
 	}
 
 	function contar_casillas_libres($tablero){
@@ -133,7 +133,7 @@
 		return $contador;
 	}
 
-	function posicion_casilla_elegida($numero_casilla){
+	function posicion_casilla_elegida($numero_casilla,$tablero){
 		$contador = 1;
 		$numero_fila = 0;
 		$numero_columna = 0;

@@ -45,7 +45,7 @@
 		}
 		// Hace la jugada "inteligente" del computador
 		private function jugar_computadora(){
-			if($modo_facil){
+			if($this->modo_facil){
 					$posicion = juego_facil($this->tablero);
 			}else{
 					$posicion = movimiento($this->tablero);
@@ -71,6 +71,24 @@
 		public function get_turno_jugador(){
 			return $this->turno_jugador;
 		}
+
+    public function mostrar_tablero(){
+      $str = $this->tablero[0][0].", ".$this->tablero[0][1].", ".$this->tablero[0][2]."</br>";
+      $str .= $this->tablero[1][0].", ".$this->tablero[1][1].", ".$this->tablero[1][2]."</br>";
+      $str .= $this->tablero[2][0].", ".$this->tablero[2][1].", ".$this->tablero[2][2]."</br>";
+      $str .= "===============================</br>";
+      return $str;
+    }
+
 	}
 
+  /*$juego = new Servidor(true);
+  echo $juego->mostrar_tablero();
+  $movimiento = $juego->poner_ficha(0,0);
+  echo $juego->mostrar_tablero();
+  echo $movimiento."</br>";
+
+  $movimiento = $juego->poner_ficha(2,2);
+  echo $juego->mostrar_tablero();
+  echo $movimiento;*/
 ?>
