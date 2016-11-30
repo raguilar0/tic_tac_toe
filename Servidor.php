@@ -22,7 +22,8 @@
 				$this->tablero[$fila][$columna] = $this->turno_jugador;
 				if($this->turno_jugador == 0 ){
 					$this->cambiar_jugador();
-					$this->jugar_computadora();
+					$posicion_retorno = $this->jugar_computadora();
+					return $posicion_retorno;
 				}
 			}
 		}
@@ -50,7 +51,9 @@
 					$posicion = movimiento($this->tablero);
 			}
 			$this->poner_ficha($posicion[0],$posicion[1]);
+			$posicion_final = calcular_posicion($posicion[0],$posicion[1]);
 			$this->cambiar_jugador();
+			return $posicion_final;
 		}
 
 		public function  imprimir(){
