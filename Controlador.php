@@ -110,6 +110,9 @@
 		}
 	}
 
+	function calcular_posicion($fila,$columna){
+		return (($fila*3)+$columna);
+	}
 	//=========================Para el nivel facil=================================
 
 	function juego_facil($tablero){
