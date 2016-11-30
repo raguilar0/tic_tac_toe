@@ -77,7 +77,7 @@
 	//Verifica que el tablero esta vacio si no es asi retorna false
 	function tablero_vacio($tablero){
 		$esta_vacio = true;
-		for( $i=0 ; $i<3 ; $++i){
+		for( $i=0 ; $i<3 ; $i++){
 			for( $j=0 ; $j<3; ++$j){
 				if($tablero[$i][$j] != -1){
 					$esta_vacia = false;
@@ -120,7 +120,7 @@
 
 	function contar_casillas_libres($tablero){
 		$contador = 0;
-		for( $i=0 ; $i<3 ; $++i){
+		for( $i=0 ; $i<3 ; $i++){
 			for( $j=0 ; $j<3; ++$j){
 				if($tablero[$i][$j] == -1){
 					++$contador;
@@ -134,7 +134,7 @@
 		$contador = 1;
 		$numero_fila = 0;
 		$numero_columna = 0;
-		for( $i=0 ; $i<3 ; $++i){
+		for( $i=0 ; $i<3 ; $i++){
 			for( $j=0 ; $j<3; ++$j){
 				if($tablero[$i][$j] == -1){
 					++$contador;
