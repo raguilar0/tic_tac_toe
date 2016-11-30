@@ -20,7 +20,9 @@
 		<part name="columna" type="xsd:int"/>
 	</message>
 
-	<message name="poner_fichaOut"/>
+	<message name="poner_fichaOut">
+		<part name="return" type="xsd:int"/>
+	</message>
 
 	<message name="imprimirIn"/>
 
