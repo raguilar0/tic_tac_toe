@@ -41,6 +41,12 @@
 	<message name="get_turno_jugadorOut">
 		<part name="return" type="xsd:int"/>
 	</message>
+	
+	<message name="mostar_tableroIn"/>
+
+	<message name="mostar_tableroOut">
+		<part name="return" type="xsd:string"/>
+	</message>
 
 	<portType name="Gato_B12037_B10141Port">
 		<operation name="poner_ficha">
@@ -62,6 +68,11 @@
 			<documentation>Servidor::get_turno_jugador() obtiene el jugador que le corresponde jugar.</documentation>
 			<input message="tns:get_turno_jugadorIn"/>
 			<output message="tns:get_turno_jugadorOut"/>
+		</operation>
+		<operation name="mostar_tablero">
+			<documentation>Servidor::imprimir() imprime ganador.</documentation>
+			<input message="tns:mostar_tableroIn"/>
+			<output message="tns:mostar_tableroOut"/>
 		</operation>
 	</portType>
 
@@ -109,6 +120,19 @@
 		</operation>
 		<operation name="get_turno_jugador">
 			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#get_turno_jugador"/>
+			<input>
+				<soap:body use="encoded"
+				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+						   namespace="urn:Gato_B12037_B10141"/>
+			</input>
+			<output>
+				<soap:body use="encoded"
+				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+						   namespace="urn:Gato_B12037_B10141"/>
+			</output>
+		</operation>
+		<operation name="mostar_tablero">
+			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#mostar_tablero"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
