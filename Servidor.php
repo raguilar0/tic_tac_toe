@@ -72,7 +72,7 @@
 			return $this->turno_jugador;
 		}
 
-    public function mostar_tablero(){
+    public function mostrar_tablero(){
       $str = $this->tablero[0][0].", ".$this->tablero[0][1].", ".$this->tablero[0][2]."</br>";
       $str .= $this->tablero[1][0].", ".$this->tablero[1][1].", ".$this->tablero[1][2]."</br>";
       $str .= $this->tablero[2][0].", ".$this->tablero[2][1].", ".$this->tablero[2][2]."</br>";
@@ -83,9 +83,9 @@
 	}
 
   $juego = new Servidor(true);
-  echo $juego->mostrar_tablero();
+  echo $juego->mostar_tablero();
   $movimiento = $juego->poner_ficha(0,0);
-  echo $juego->mostrar_tablero();
+  echo $juego->mostar_tablero();
   echo $movimiento."</br>";
 /*
   $movimiento = $juego->poner_ficha(2,2);
