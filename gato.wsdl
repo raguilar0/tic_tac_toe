@@ -42,9 +42,9 @@
 		<part name="return" type="xsd:int"/>
 	</message>
 	
-	<message name="mostar_tableroIn"/>
+	<message name="mostrar_tableroIn"/>
 
-	<message name="mostar_tableroOut">
+	<message name="mostrar_tableroOut">
 		<part name="return" type="xsd:string"/>
 	</message>
 
@@ -69,10 +69,10 @@
 			<input message="tns:get_turno_jugadorIn"/>
 			<output message="tns:get_turno_jugadorOut"/>
 		</operation>
-		<operation name="mostar_tablero">
+		<operation name="mostrar_tablero">
 			<documentation>Servidor::imprimir() imprime ganador.</documentation>
-			<input message="tns:mostar_tableroIn"/>
-			<output message="tns:mostar_tableroOut"/>
+			<input message="tns:mostrar_tableroIn"/>
+			<output message="tns:mostrar_tableroOut"/>
 		</operation>
 	</portType>
 
@@ -131,8 +131,8 @@
 						   namespace="urn:Gato_B12037_B10141"/>
 			</output>
 		</operation>
-		<operation name="mostar_tablero">
-			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#mostar_tablero"/>
+		<operation name="mostrar_tablero">
+			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#mostrar_tablero"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
