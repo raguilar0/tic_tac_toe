@@ -20,7 +20,7 @@
 		public function poner_ficha($fila,$columna){
 			if($this->esta_vacia($fila,$columna) && $this->es_valida($fila,$columna)){
 				$this->tablero[$fila][$columna] = $this->turno_jugador;
-				if($this->turno_jugador == 0 && !tablero_vacio($this->tablero)){
+				if($this->turno_jugador == 0 && !tablero_vacio($this->tablero) && !gano($this->tablero, 0)){
 					$this->cambiar_jugador();
 					$posicion_retorno = $this->jugar_computadora();
 					return $posicion_retorno;
@@ -70,6 +70,17 @@
 		}
 		public function get_turno_jugador(){
 			return $this->turno_jugador;
+		}
+
+		public function hay_ganador(){
+			$ganador = 0;
+			if(gano($this->tablero,0)){
+				$ganador = -1;
+			}
+			if(gano($this->tablero),1){
+				$ganador = -2;
+			}
+			return $ganador;
 		}
 
     public function mostrar_tablero(){
