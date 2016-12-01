@@ -47,6 +47,12 @@
 	<message name="mostrar_tableroOut">
 		<part name="return" type="xsd:string"/>
 	</message>
+	
+	<message name="hay_ganadorIn"/>
+
+	<message name="hay_ganadorOut">
+		<part name="return" type="xsd:int"/>
+	</message>
 
 	<portType name="Gato_B12037_B10141Port">
 		<operation name="poner_ficha">
@@ -73,6 +79,11 @@
 			<documentation>Servidor::imprimir() imprime ganador.</documentation>
 			<input message="tns:mostrar_tableroIn"/>
 			<output message="tns:mostrar_tableroOut"/>
+		</operation>
+		<operation name="hay_ganador">
+			<documentation>Servidor::imprimir() imprime ganador.</documentation>
+			<input message="tns:hay_ganadorIn"/>
+			<output message="tns:hay_ganadorOut"/>
 		</operation>
 	</portType>
 
@@ -133,6 +144,19 @@
 		</operation>
 		<operation name="mostrar_tablero">
 			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#mostrar_tablero"/>
+			<input>
+				<soap:body use="encoded"
+				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+						   namespace="urn:Gato_B12037_B10141"/>
+			</input>
+			<output>
+				<soap:body use="encoded"
+				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+						   namespace="urn:Gato_B12037_B10141"/>
+			</output>
+		</operation>
+		<operation name="hay_ganador">
+			<soap:operation soapAction="urn:Gato_B12037_B10141#Servidor#hay_ganador"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
