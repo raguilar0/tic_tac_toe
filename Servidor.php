@@ -77,7 +77,7 @@
 			if(gano($this->tablero,0)){
 				$ganador = -1;
 			}
-			if(gano($this->tablero),1){
+			if(gano($this->tablero,1)){
 				$ganador = -2;
 			}
 			return $ganador;
