@@ -81,14 +81,4 @@
     }
 
 	}
-
-  $juego = new Servidor(true);
-  echo $juego->mostar_tablero();
-  $movimiento = $juego->poner_ficha(0,0);
-  echo $juego->mostar_tablero();
-  echo $movimiento."</br>";
-/*
-  $movimiento = $juego->poner_ficha(2,2);
-  echo $juego->mostrar_tablero();
-  echo $movimiento;*/
 ?>
