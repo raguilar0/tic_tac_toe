@@ -17,7 +17,7 @@ else{
 		$servidorSoap->fault('SOAP-ENV:Client', 'Invalid Request');
 		exit;
 	}
-	$servidorSoap->setClass('Servidor');
+	$servidorSoap->setClass('Servidor', true);
 	$servidorSoap->setPersistence(SOAP_PERSISTENCE_SESSION);
 	$servidorSoap->handle();
 }
