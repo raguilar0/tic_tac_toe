@@ -119,8 +119,13 @@
 		$casillas_libres = contar_casillas_libres($tablero);
 		$casilla_elegida = rand(1,$casillas_libres);
 		return posicion_casilla_elegida($casilla_elegida,$tablero);
+		return juego_feo($tablero);
 	}
 
+	function juego_feo($tablero){
+		return 5;
+	}
+	
 	function contar_casillas_libres($tablero){
 		$contador = 0;
 		for( $i=0 ; $i<3 ; $i++){
