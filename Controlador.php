@@ -122,7 +122,7 @@
 	}
 
 
-	
+
 	function contar_casillas_libres($tablero){
 		$contador = 0;
 		for( $i=0 ; $i<3 ; $i++){
@@ -146,7 +146,6 @@
 					if($contador == $numero_casilla){
 						$numero_fila = $i;
 						$numero_columna = $j;
-						break;
 					}
 				}
 			}
