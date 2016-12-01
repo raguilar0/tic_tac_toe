@@ -20,7 +20,7 @@
 		public function poner_ficha($fila,$columna){
 			if($this->esta_vacia($fila,$columna) && $this->es_valida($fila,$columna)){
 				$this->tablero[$fila][$columna] = $this->turno_jugador;
-				if($this->turno_jugador == 0 ){
+				if($this->turno_jugador == 0 && tablero_vacio($this->tablero)){
 					$this->cambiar_jugador();
 					$posicion_retorno = $this->jugar_computadora();
 					return $posicion_retorno;
