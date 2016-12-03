@@ -7,7 +7,7 @@
 		public $tablero;
 		private $turno_jugador = 0;
 		private $modo_facil = true;
-		function __construct($modo){
+		function __construct(){
 			$this->tablero [0] [0] = -1; $this->tablero [0] [1] = -1; $this->tablero [0] [2] = -1;
 			$this->tablero [1] [0] = -1; $this->tablero [1] [1] = -1; $this->tablero [1] [2] = -1;
 			$this->tablero [2] [0] = -1; $this->tablero [2] [1] = -1; $this->tablero [2] [2] = -1;
@@ -83,6 +83,15 @@
 			return $ganador;
 		}
 
+		public function insertar_ganador($nombre,$tiempo){
+			$dbconn = pg_connect("host=titanic.ecci.ucr.ac.cr dbname=ci2413 user=eb10141 password=eb10141")
+    	or die('No se ha podido conectar: ' . pg_last_error());
+
+			$query = "INSERT INTO eb10141.gato (name,time) VALUES ('".$nombre."' ,".$tiempo.");";
+			echo $query;
+			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
+		}
+
     public function mostrar_tablero(){
       $str = $this->tablero[0][0].", ".$this->tablero[0][1].", ".$this->tablero[0][2]."</br>";
       $str .= $this->tablero[1][0].", ".$this->tablero[1][1].", ".$this->tablero[1][2]."</br>";
@@ -92,4 +101,8 @@
     }
 
 	}
+
+	$juego = new Servidor();
+	$juego->insertar_ganador("Ricardo",6);
+
 ?>
