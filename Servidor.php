@@ -12,7 +12,7 @@
 			$this->tablero [1] [0] = -1; $this->tablero [1] [1] = -1; $this->tablero [1] [2] = -1;
 			$this->tablero [2] [0] = -1; $this->tablero [2] [1] = -1; $this->tablero [2] [2] = -1;
 
-			$this->modo_facil = $modo;
+		//	$this->modo_facil = $modo;
 		}
 		/*
 		Pone la ficha del jugador en turno en la posicion que se solicita
