@@ -102,7 +102,4 @@
 
 	}
 
-	$juego = new Servidor();
-	$juego->insertar_ganador("Ricardo",6);
-
 ?>
