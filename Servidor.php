@@ -129,9 +129,4 @@
 
 	}
 
-	$juego = new Servidor();
-	$juego->insertar_ganador("Ricardo", 6);
-	$juego->insertar_ganador("Alejandro", 24);
-	$juego->mostrar_records();
-
 ?>
