@@ -107,7 +107,7 @@
 			$str = "";
 			while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 		    foreach ($line as $col_value) {
-        	$str.= $col_value."\t";
+        	$str.= $col_value."     ";
     		}
     		$str.="\n";
 			}
