@@ -1,4 +1,8 @@
 <?php
+
+	function imprimir(){
+			return "HOLAMUNDO";
+		}
 	// Verifica si en el tablero actual hay un ganador
 	function gano($matrix, $jugador){;
 		$ha_ganado = false;
@@ -11,7 +15,7 @@
 			return (revisar_horizontal($matrix, $jugador) || revisar_vertical($matrix, $jugador) || revisar_diagonales($matrix, $jugador));
 	}
 
-	// Verifica si hay algun ganador en las filas del tablero
+		// Verifica si hay algun ganador en las filas del tablero
 	function revisar_horizontal($matrix, $jugador){
 		$ha_ganado = false;
 		for($i=0 ; $i<3 ;++$i){
@@ -46,6 +50,21 @@
 		return $ha_ganado;
 	}
 
+		function movimiento($matriz){
+			$posicion_ficha = analizar_tablero($matrix);
+			return $posicion_ficha;
+		}
+
+	// Analiza el movimiento de la maquina y retorna la posicion donde debe de poner la ficha
+	function analizar_tablero($matrix){
+		$posicion_ficha[0] = 0;
+		$posicion_ficha[1] = 0;
+		if(tablero_vacio( $matrix )){
+			$posicion_ficha = escoger_esquina();
+		}
+
+		return $posicion_ficha;
+	}
 
 	//Verifica que el tablero esta vacio si no es asi retorna false
 	function tablero_vacio($tablero){
@@ -60,11 +79,34 @@
 		return $esta_vacia;
 	}
 
-	//Calcula la posicion de una ficha para retornarla a la vista
+	//Escoge una esquina al azar
+	function escoger_esquina(){
+		$esquina = rand(1,4);
+		switch ($esquina) {
+		    case 1:
+					$posicion[0] = 0;
+					$posicion[1] = 1;
+		      break;
+		    case 2:
+					$posicion[0] = 0;
+					$posicion[1] = 2;
+		      break;
+		    case 3:
+					$posicion[0] = 2;
+					$posicion[1] = 0;
+		      break;
+				case 4:
+					$posicion[0] = 2;
+					$posicion[1] = 2;
+					break;
+		}
+	}
+
 	function calcular_posicion($fila,$columna){
 		return (($fila*3)+$columna);
 	}
 	//=========================Para el nivel facil=================================
+
 	//Juego de la computadora
 	function juego_facil($tablero){
 		$casillas_libres = contar_casillas_libres($tablero);
@@ -105,5 +147,4 @@
 		$posicion[1] = $numero_columna;
 		return $posicion;
 	}
-
 ?>
