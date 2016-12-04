@@ -88,8 +88,35 @@
     	or die('No se ha podido conectar: ' . pg_last_error());
 
 			$query = "INSERT INTO eb10141.gato (name,time) VALUES ('".$nombre."' ,".$tiempo.");";
-			echo $query;
+			//echo $query;
 			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
+
+			// Liberando el conjunto de resultados
+			pg_free_result($result);
+
+			// Cerrando la conexión
+			pg_close($dbconn);
+		}
+
+		public function mostrar_records(){
+			$dbconn = pg_connect("host=titanic.ecci.ucr.ac.cr dbname=ci2413 user=eb10141 password=eb10141")
+    	or die('No se ha podido conectar: ' . pg_last_error());
+
+			$query = "SELECT name, time FROM eb10141.gato ORDER BY time LIMIT 10;";
+			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
+			$str = "";
+			while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+		    foreach ($line as $col_value) {
+        	$str.= $col_value."\t";
+    		}
+    		$str.="\n";
+			}
+			echo $str;
+			// Liberando el conjunto de resultados
+			pg_free_result($result);
+
+			// Cerrando la conexión
+			pg_close($dbconn);
 		}
 
     public function mostrar_tablero(){
@@ -101,5 +128,10 @@
     }
 
 	}
+
+	$juego = new Servidor();
+	$juego->insertar_ganador("Ricardo", 6);
+	$juego->insertar_ganador("Alejandro", 24);
+	$juego->mostrar_records();
 
 ?>
