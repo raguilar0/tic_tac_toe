@@ -117,6 +117,8 @@
 
 			// Cerrando la conexión
 			pg_close($dbconn);
+
+			return $str;
 		}
 
     public function mostrar_tablero(){
